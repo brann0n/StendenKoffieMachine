@@ -203,7 +203,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\BasicCommands.cs" />
     <Compile Include="Modules\BotConfig.cs" />
+    <Compile Include="Modules\CommandHandler.cs" />
+    <Compile Include="Modules\CustomExtensions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
