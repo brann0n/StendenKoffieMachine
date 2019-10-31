@@ -1,0 +1,2 @@
+# StendenKoffieMachine
+StendenKoffieMachine discord bot
