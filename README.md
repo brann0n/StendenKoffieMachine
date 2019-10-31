@@ -16,6 +16,7 @@ Discord.net
 * **Sytze van der Gaag**
 * **Tim Gels**
 * **Jesper Kuipers**
+* **Ryan de Jonge**
 
 ## Acknowledgments
 
