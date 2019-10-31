@@ -49,6 +49,9 @@ namespace KoffieMachineBot
 			//assign the current client object to the global client object
 			Global.Client = _client;
 
+			//set status to prefix
+			await _client.SetGameAsync($"prefix {BotConfig.bot.CmdPrefix}", type: ActivityType.Listening);
+
 			_commands = new CommandService();
 
 			_services = new ServiceCollection()
@@ -63,7 +66,9 @@ namespace KoffieMachineBot
 			await _commands.AddModulesAsync(Assembly.GetEntryAssembly(), null);
 
 			//assign the command handler
-			_handler = new CommandHandler(_client, _services, _commands); 
+			_handler = new CommandHandler(_client, _services, _commands);
+
+			Global.Commands = _commands;
 
 			//stay in this function forever
 			await Task.Delay(-1);

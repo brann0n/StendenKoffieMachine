@@ -11,6 +11,6 @@ namespace KoffieMachineBot
 	public class Global
 	{
 		public static DiscordSocketClient Client;
-        public static CommandService Commands;
-    }
+    public static CommandService Commands;
+  }
 }
