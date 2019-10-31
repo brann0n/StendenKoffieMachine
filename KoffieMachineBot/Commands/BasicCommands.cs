@@ -18,6 +18,14 @@ namespace KoffieMachineBot.Commands
 			await ReplyAsync("Hello back!");
 		}
 
+
+		[Command("ping"), Summary("sends the ping back")]
+		public async Task Ping()
+		{
+			await ReplyAsync($"Pong! {Global.Client.Latency} ms");
+		}
+
+
 		[Command("coin"), Alias("coin flip"), Summary("krijg een gok verslaving")]
 		public async Task CoinFlip()
 		{
@@ -46,7 +54,7 @@ namespace KoffieMachineBot.Commands
 			await ReplyAsync(":crab:");
 		}
 
-        [Command("help")]
+        [Command("help"), Summary("help command made by Ryan")]
         public async Task HelpAsync()
         {
             EmbedBuilder e = new EmbedBuilder();
