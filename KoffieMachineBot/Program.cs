@@ -64,7 +64,9 @@ namespace KoffieMachineBot
 			await _commands.AddModulesAsync(Assembly.GetEntryAssembly(), null);
 
 			//assign the command handler
-			_handler = new CommandHandler(_client, _services, _commands); 
+			_handler = new CommandHandler(_client, _services, _commands);
+
+			Global.Commands = _commands;
 
 			//stay in this function forever
 			await Task.Delay(-1);
