@@ -49,6 +49,9 @@ namespace KoffieMachineBot
 			//assign the current client object to the global client object
 			Global.Client = _client;
 
+			//set status to prefix
+			await _client.SetGameAsync($"prefix {BotConfig.bot.CmdPrefix}", type: ActivityType.Listening);
+
 			_commands = new CommandService();
 
 			_services = new ServiceCollection()

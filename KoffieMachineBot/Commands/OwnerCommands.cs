@@ -16,5 +16,12 @@ namespace KoffieMachineBot.Commands
 			await ReplyAsync("Shutting down the bot");
 			System.Environment.Exit(1);
 		}
+
+		[Command("status")]
+		public async Task Status([Remainder]string status = "")
+		{
+			await Global.Client.SetGameAsync(status);
+			await Global.Client.SetStatusAsync(Discord.UserStatus.Online);			
+		}
 	}
 }
