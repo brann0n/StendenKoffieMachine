@@ -15,7 +15,7 @@ Discord.net
 ## Contributers
 * **Sytze van der Gaag**
 * **Tim Gels**
-* **Jesper Kuipers*
+* **Jesper Kuipers**
 
 ## Acknowledgments
 
