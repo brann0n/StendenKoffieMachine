@@ -52,10 +52,12 @@ namespace KoffieMachineBot
 			_commands = new CommandService();
 
 			_services = new ServiceCollection()
-				.AddSingleton<DiscordSocketClient>()
-				.AddSingleton<CommandService>()
-				.AddSingleton<HttpClient>()
+				.AddSingleton<DiscordSocketClient>(_client)
+				.AddSingleton<CommandService>(_commands)
+				.AddSingleton<HttpClient>() // ???
 				.BuildServiceProvider();
+
+            Global.Commands = _commands;
 
 			//discover all of the commands in this assembly and load them.
 			await _commands.AddModulesAsync(Assembly.GetEntryAssembly(), null);
@@ -69,6 +71,7 @@ namespace KoffieMachineBot
 
 		private async Task Log(LogMessage msg)
 		{
+            await Task.Yield(); // doet niks, maar weg met die kutte async warnings
 			Console.WriteLine(msg.Message);
 		}
 	}

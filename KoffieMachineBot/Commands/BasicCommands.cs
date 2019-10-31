@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Discord;
 using Discord.Commands;
+using Discord.WebSocket;
 
 namespace KoffieMachineBot.Commands
 {
 	public class BasicCommands : ModuleBase<SocketCommandContext>
 	{
+
 		[Command("Hello")]
 		public async Task Hello()
 		{
@@ -43,5 +46,23 @@ namespace KoffieMachineBot.Commands
 		{
 			await ReplyAsync(":crab:");
 		}
+
+        [Command("help")]
+        public async Task HelpAsync()
+        {
+            EmbedBuilder e = new EmbedBuilder();
+            string commands = "";
+
+            foreach(var c in Global.Commands.Commands)
+            {
+                commands += $"`{c.Name}` ";
+            }
+
+            e.AddField("Command listing", commands);
+            e.WithTitle("Help");
+            e.WithDescription("Hier, je commands, veel plezier.");
+
+            await ReplyAsync(embed: e.Build());
+        }
 	}
 }
