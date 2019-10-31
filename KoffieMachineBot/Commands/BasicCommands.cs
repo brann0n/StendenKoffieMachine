@@ -15,5 +15,11 @@ namespace KoffieMachineBot.Commands
 		{
 			await ReplyAsync("Hello back!");
 		}
+
+		[Command("is gone")]
+		public async Task KoffieIsGone()
+		{
+			await ReplyAsync(":crab:");
+		}
 	}
 }
