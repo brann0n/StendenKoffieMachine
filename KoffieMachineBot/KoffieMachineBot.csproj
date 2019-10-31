@@ -211,6 +211,7 @@
   <ItemGroup>
     <Compile Include="Commands\BasicCommands.cs" />
     <Compile Include="Commands\OwnerCommands.cs" />
+    <Compile Include="Global.cs" />
     <Compile Include="Modules\BotConfig.cs" />
     <Compile Include="Modules\CommandHandler.cs" />
     <Compile Include="Modules\CustomExtensions.cs" />

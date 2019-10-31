@@ -13,7 +13,7 @@ using System.Reflection;
 
 namespace KoffieMachineBot
 {
-	class Program
+	public class Program
 	{
 		DiscordSocketClient _client;
 		CommandService _commands;
@@ -45,6 +45,9 @@ namespace KoffieMachineBot
 			//Connect the bot to discord
 			await _client.LoginAsync(TokenType.Bot, BotConfig.bot.Token);
 			await _client.StartAsync();
+
+			//assign the current client object to the global client object
+			Global.Client = _client;
 
 			_commands = new CommandService();
 
