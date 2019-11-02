@@ -84,5 +84,64 @@ namespace KoffieMachineBot.Commands
 
 			await Context.Channel.SendMessageAsync("", false, embed.Build());
 		}
+
+		[Command("members"), Summary("Gives a nice update about the members"), Alias("m")]
+		public async Task Members()
+		{
+			if (Context.Guild.Id == 486166479188918284) //kekistan
+			{
+				//get role objects
+				SocketRole inf1role = Context.Guild.Roles.FirstOrDefault(i => i.Id == 616008345899368478);
+				SocketRole inf2role = Context.Guild.Roles.FirstOrDefault(i => i.Id == 540216225339539458);
+				SocketRole inf3role = Context.Guild.Roles.FirstOrDefault(i => i.Id == 625432605235478556);
+				SocketRole inf4role = Context.Guild.Roles.FirstOrDefault(i => i.Id == 625432666371653662);
+				SocketRole infFallenrole = Context.Guild.Roles.FirstOrDefault(i => i.Id == 510429544918810624);
+				SocketRole infTeacherrole = Context.Guild.Roles.FirstOrDefault(i => i.Id == 623124878438170625);
+
+				//other role objects
+				SocketRole adminsRole = Context.Guild.Roles.FirstOrDefault(i => i.Id == 486167214702067722);
+				SocketRole modsRole = Context.Guild.Roles.FirstOrDefault(i => i.Id == 486167477974466581);
+				SocketRole weebsRole = Context.Guild.Roles.FirstOrDefault(i => i.Id == 623561010476744754);
+
+				//get member count of role
+				string inf1Users = Context.Guild.Users.Where(i => i.Roles.Contains(inf1role)).Count().ToString();
+				string inf2Users = Context.Guild.Users.Where(i => i.Roles.Contains(inf2role)).Count().ToString();
+				string inf3Users = Context.Guild.Users.Where(i => i.Roles.Contains(inf3role)).Count().ToString();
+				string inf4Users = Context.Guild.Users.Where(i => i.Roles.Contains(inf4role)).Count().ToString();
+				string infFallenUsers = Context.Guild.Users.Where(i => i.Roles.Contains(infFallenrole)).Count().ToString();
+				int infTeacherUsers = Context.Guild.Users.Where(i => i.Roles.Contains(infTeacherrole)).Count();
+				int adminsUsers = Context.Guild.Users.Where(i => i.Roles.Contains(adminsRole)).Count();
+				int modsUsers = Context.Guild.Users.Where(i => i.Roles.Contains(modsRole)).Count();
+				int weebsUsers = Context.Guild.Users.Where(i => i.Roles.Contains(weebsRole)).Count();
+
+				//string teacher = infTeacherUsers == 1 ? "is 1 teacher." : $"zijn {infTeacherUsers} teachers.";
+				//string replyMessage = $"INF1 heeft {inf1Users} members. \r\nINF2 heeft {inf2Users} members. \r\nINF3 heeft {inf3Users} members. \r\nINF4 heeft {inf4Users} members. \r\nEr zijn {infFallenUsers} Fallen Soldiers. \r\nEn er {teacher}";
+
+				var builder = new EmbedBuilder();
+
+				builder.WithTitle($"Member info in {Context.Guild.Name}");
+				builder.AddField("INF1 members: ", inf1Users, true);
+				builder.AddField("INF2 members: ", inf2Users, true);
+				builder.AddField("INF3 members: ", inf3Users, true);
+				builder.AddField("INF4 members: ", inf4Users, true);
+				builder.AddField("Fallen members: ", infFallenUsers, true);
+				builder.AddField("Teachers: ", infTeacherUsers, true);
+				string mentionsString = $"Er zijn {adminsUsers} admins, {modsUsers} mods en {weebsUsers} weebs!";
+				builder.AddField("Honorable mentions", mentionsString);
+
+				//builder.AddInlineField("Mods: ", modsUsers);
+				//builder.AddInlineField("Admins: ", adminsUsers);
+				//builder.AddInlineField("Weebs: ", weebsUsers);
+
+				//builder.WithThumbnailUrl("url");
+
+				builder.WithColor(Color.Gold);
+				await Context.Channel.SendMessageAsync("", false, builder.Build());
+			}
+			else
+			{
+				await ReplyAsync($"This server has {Context.Guild.MemberCount} members!");
+			}
+		}
 	}
 }
