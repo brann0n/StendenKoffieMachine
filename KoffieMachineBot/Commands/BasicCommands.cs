@@ -150,6 +150,7 @@ namespace KoffieMachineBot.Commands
 			var builder = new EmbedBuilder();
 			builder.Title = "StendenKoffieMachine Git";
 			builder.Url = "https://github.com/brann0n/StendenKoffieMachine";
+			builder.AddField("Discord channel", "<#639491665740169246>");
 
 			await Context.Channel.SendMessageAsync("", false, builder.Build());
 		}
