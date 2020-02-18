@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace KoffieMachineBot
 {
-	public class Global
-	{
-		public static DiscordSocketClient Client;
-    public static CommandService Commands;
-  }
+    public class Global
+    {
+        public static DiscordSocketClient Client;
+        public static CommandService Commands;
+    }
 }

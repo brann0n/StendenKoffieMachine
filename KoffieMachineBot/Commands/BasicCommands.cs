@@ -143,5 +143,15 @@ namespace KoffieMachineBot.Commands
 				await ReplyAsync($"This server has {Context.Guild.MemberCount} members!");
 			}
 		}
+
+		[Command("git"), Summary("Returns the git url of the bot")]
+		public async Task Git()
+		{
+			var builder = new EmbedBuilder();
+			builder.Title = "StendenKoffieMachine Git";
+			builder.Url = "https://github.com/brann0n/StendenKoffieMachine";
+
+			await Context.Channel.SendMessageAsync("", false, builder.Build());
+		}
 	}
 }
